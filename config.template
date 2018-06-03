@@ -1,3 +1,5 @@
 exports.TOKEN = '<Bot Token>';
 
 exports.PREFIX = 'x';
+
+exports.YOUTUBE_API_KEY = '<KEY>'
