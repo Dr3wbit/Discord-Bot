@@ -76,7 +76,7 @@ client.on('message', async msg => {
         serverQueue.songs = [];
         serverQueue.connection.dispatcher.end('Stop Command has been used');
         return;
-    } else if(msg.content.startsWith(`${PREFIX}volume`)) {
+    } else if(msg.content.startsWith(`${PREFIX}volume` || `${PREFIX}vol`)) {
         if (!serverQueue) return msg.channel.send('Nothing Playing!');
         if (!args[1]) return msg.channel.send(`The current volume is: ${serverQueue.volume}`);
         if (args[1] > 2) return msg.channel.send('the volume cannot be greater than 2 ;) Avery!');
