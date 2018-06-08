@@ -76,19 +76,20 @@ client.on('message', async msg => {
         serverQueue.songs = [];
         serverQueue.connection.dispatcher.end('Stop Command has been used');
         return;
-    // } else if(msg.content.startsWith(`${PREFIX}volume`)) {
-    //     if (!serverQueue) return msg.channel.send('Nothing Playing!');
-    //     if (!args[1]) return msg.channel.send(`The current volume is: ${serverQueue.volume}`);
-    //     serverQueue.volume = args[1];
-    //     serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
-    //     return msg.channel.send(`volume is now set to **${args[1]}**`)
+    } else if(msg.content.startsWith(`${PREFIX}volume`)) {
+        if (!serverQueue) return msg.channel.send('Nothing Playing!');
+        if (!args[1]) return msg.channel.send(`The current volume is: ${serverQueue.volume}`);
+        if (args[1] > 2) return msg.channel.send('the volume cannot be greater than 2 ;) Avery!');
+        serverQueue.volume = args[1];
+        serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
+        return msg.channel.send(`volume is now set to **${args[1]}**`)
     } else if (msg.content.startsWith(`${PREFIX}np`)){
         if (!serverQueue) return msg.channel.send('Nothing Playing!');
         return msg.channel.send(`Now Playing **${serverQueue.songs[0].title}**`);
     } else if (msg.content.startsWith(`${PREFIX}queue`)) {
         if (!serverQueue) return msg.channel.send('Nothing Playing!');
         return msg.channel.send(`
-__**Song Queue:**__
+**Song Queue:**
 ${serverQueue.songs.map(song => `**-**${song.title}`).join('\n')}
 
 **Now Playing:** ${serverQueue.songs[0].title}
