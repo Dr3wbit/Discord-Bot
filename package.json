@@ -17,10 +17,14 @@
   },
   "homepage": "https://github.com/Dr3wbit/Discord-Bot#readme",
   "dependencies": {
-    "discord.js": "^11.3.2",
-    "ffmpeg-binaries": "^3.2.2-3",
+    "discord.js": "^11.5.1",
+    "ffmpeg": "0.0.4",
+    "ffmpeg-binaries": "^4.0.0",
+    "ffmpeg-static": "^4.0.1",
+    "i": "^0.3.6",
+    "npm": "^6.13.7",
     "opusscript": "0.0.6",
     "simple-youtube-api": "^5.0.2",
-    "ytdl-core": "^0.20.4"
+    "ytdl-core": "^1.0.7"
   }
 }
